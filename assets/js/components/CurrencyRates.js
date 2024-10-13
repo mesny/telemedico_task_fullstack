@@ -31,11 +31,6 @@ class CurrencyRates extends Component {
     }
 
     componentDidMount() {
-        // const day = new Date().getDay();
-        // if (day === 0 || day === 6) {
-        //     this.setState({ showWeekendInfo: true, loading: false });
-        //     return;
-        // }
         this.fetchRatesForDate(this.state.date);
     }
 
