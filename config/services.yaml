@@ -23,8 +23,32 @@ services:
     # as action arguments even if you don't extend any base controller class
     App\Controller\:
         resource: '../src/App/Controller/'
-        autowire: true
         tags: ['controller.service_arguments']
+
+    App\Service\:
+        resource: '../src/App/Service/'
+
+    App\Service\ExchangeRates:
+        arguments:
+            $baseUri: 'https://api.nbp.pl/api/exchangerates/tables/A/'
+            $currencies:
+                USD:
+                    bid: -0.05
+                    ask: 0.07
+                EUR:
+                    bid: -0.05
+                    ask: 0.07
+                CZK:
+                    ask: 0.15
+                IDR:
+                    ask: 0.15
+                BRL:
+                    ask: 0.15
+
+
+    App\Logger\:
+        resource: '../src/App/Logger/'
+
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
